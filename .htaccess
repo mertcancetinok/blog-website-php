@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteCond %{HTTP_POST} ^mertcancetinok.com^ [NC,OR]
+RewriteCond %{HTTP_POST} ^www.mertcancetinok.com^ [NC]
+RewriteRule ^(.*)$ http://mertcancetinok.com/$1 [L,R=301,NC]
+
+#https
+RewriteCond %{HTTPS} !On
+RewriteRule (.*) https://%{HTTP_POST}%{REQUEST_URI} [L,R=301]
+
+DirectoryIndex public/index.php
